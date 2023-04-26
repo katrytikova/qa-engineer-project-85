@@ -1,0 +1,116 @@
+---
+- summary: |
+    Краткое описание тест-кейса. Пример: Проверка входа пользователя с существующими логином и паролем
+  requirement: |
+    Тестируемое требование. Например: При верном вводе логине и пароля пользователь должен войти в систему
+  prerequisites: |
+    Это условия, которые необходимы для проведения тест-кейса. Они должны быть выполнены еще до запуска тест-кейса.
+    Например: открыта страница логина
+  test-data: |
+    Тестовые данные
+    Логин = ilona Пароль = password
+  steps:
+    - Вводим логин
+    - Вводим пароль
+    - Нажимаем кнопку «Войти»
+  expected-result: |
+    Пользователь должен попасть на главную страницу
+    
+- summary: |
+    Проверка регистрации пользователя
+  requirement: |
+    При верном вводе логине и пароля пользователь должен войти в систему
+  prerequisites:
+    Открыта страница регистрации
+  test-data: |
+    псевдоним = test25 Электронная почта = katlukina@mail.ru Пароль = test25 подтверждение пароля = test25
+  steps:
+    - Вводим псевдоним
+    - Вводим логин
+    - Вводим пароль
+    - Вводим подтверждение пароля
+    - Нажимаем кнопку «Войти»
+  expected-result: |
+    Пользователь должен попасть на главную страницу
+    
+- summary: |
+    Проверка входа пользователя с существующими логином и паролем
+  requirement: |
+    При верном вводе логине и пароля пользователь должен войти в систему
+  prerequisites: |
+    открыта страница логина
+  test-data: |
+    Логин = ilona Пароль = password
+  steps:
+    - Вводим логин
+    - Вводим пароль
+    - Нажимаем кнопку «Войти»
+  expected-result: |
+    Пользователь должен попасть на главную страницу
+
+- summary: |
+    Проверка входа пользователя с несуществующими логином и паролем
+  requirement: |
+    При неправильном логине или пароле пользователь должен получить сообщение об ошибке
+  prerequisites:
+    Открыта страница логина
+  test-data: |
+    Логин = hexlet Пароль = badpass
+  steps:
+    - Вводим логин
+    - Вводим пароль
+    - Нажимаем кнопку «Войти»
+  expected-result: |
+    Должно появиться сообщение об ошибке
+    
+- summary: |
+    Проверка входа пользователя через Гитхаб
+  requirement: |
+    При верном вводе логине и пароля пользователь должен войти в систему
+  prerequisites:
+    Открыта страница логина
+  test-data: |
+    empty
+  steps:
+    - Нажимаем «Войти» через Гитхаб
+  expected-result: |
+    Пользователь должен попасть на главную страницу
+    
+- summary: |
+    Проверка создания игры с ботом
+  requirement: |
+    При верном вводе данных игра запускается
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 8 min, Choose task by name or tags = rect_area
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 8 min
+    - Choose task by name or tags = rect_area
+    - нажать create battle
+  expected-result: |
+    Пользователь должен попасть на страницу турнира 
+    
+- summary: |
+    Проверка создания игры с другом
+  requirement: |
+    При верном вводе данных игра запускается
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a friend, time control = 8 min, Choose opponent = krytikova, Choose task by name or tags = rect_area
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 8 min
+    - Choose opponent = krytikova
+    - Choose task by name or tags = rect_area
+    - нажать create invite
+  expected-result: |
+    Пользователю должно прийти приглашение на почту?
+    
+    

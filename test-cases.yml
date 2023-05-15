@@ -1,21 +1,5 @@
 ---
-- summary: |
-    Краткое описание тест-кейса. Пример: Проверка входа пользователя с существующими логином и паролем
-  requirement: |
-    Тестируемое требование. Например: При верном вводе логине и пароля пользователь должен войти в систему
-  prerequisites: |
-    Это условия, которые необходимы для проведения тест-кейса. Они должны быть выполнены еще до запуска тест-кейса.
-    Например: открыта страница логина
-  test-data: |
-    Тестовые данные
-    Логин = ilona Пароль = password
-  steps:
-    - Вводим логин
-    - Вводим пароль
-    - Нажимаем кнопку «Войти»
-  expected-result: |
-    Пользователь должен попасть на главную страницу
-    
+
 - summary: |
     Проверка регистрации пользователя
   requirement: |
@@ -83,13 +67,13 @@
   prerequisites:
     Открыта главная страница https://codebattle.hexlet.io/#lobby
   test-data: |
-    level = 1 звезда, game type = with a bot, time control = 8 min, Choose task by name or tags = rect_area
+    level = 1 звезда, game type = with a bot, time control = 30 min, Choose task by name or tags = add_two_number
   steps:
     - Нажимаем «Create a game"
     - level 1 звезда
     - game type = with a bot
-    - time control = 8 min
-    - Choose task by name or tags = rect_area
+    - time control = 30 min
+    - Choose task by name or tags = add_two_number
     - нажать create battle
   expected-result: |
     Пользователь должен попасть на страницу турнира 
@@ -101,16 +85,127 @@
   prerequisites:
     Открыта главная страница https://codebattle.hexlet.io/#lobby
   test-data: |
-    level = 1 звезда, game type = with a friend, time control = 8 min, Choose opponent = krytikova, Choose task by name or tags = rect_area
+    level = 1 звезда, game type = with a friend, time control = 10 min, Choose opponent = krytikova, Choose task by name or tags = additive_inverse
   steps:
     - Нажимаем «Create a game"
     - level 1 звезда
     - game type = with a bot
-    - time control = 8 min
+    - time control = 10 min
     - Choose opponent = krytikova
-    - Choose task by name or tags = rect_area
+    - Choose task by name or tags = additive_inverse
     - нажать create invite
   expected-result: |
-    Пользователю должно прийти приглашение на почту?
+    Пользователю должно прийти приглашение в личный кабинет
     
+- summary: |
+    Проверка создания игры с другим пользователем
+  requirement: |
+    При верном вводе данных игра запускается
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = With other users, time control = 60 min, Choose task by name or tags = age_to_days
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 60 min
+    - Choose task by name or tags = age_to_days
+    - нажать create invite
+  expected-result: |
+    Игра должна высветиться в лобби 
     
+- summary: |
+    Сдаться в игре с ботом
+  requirement: |
+    При нажатии на кнопку "сдаться" появляется всплывающее окно с уточнением намерения сдаться
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 30 min, Choose task by name or tags = add_two_number
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 30 min
+    - Choose task by name or tags = add_two_number
+    - нажать create battle
+    - нажать кнопку "сдаться"
+  expected-result: |
+    Пользователь должен увидеть всплывающее окно с уточнением намерения сдаться
+    
+- summary: |
+    Сбросить редактор игры с ботом
+  requirement: |
+    При нажатии на кнопку "сбросить редактор" окно редактора очищается от изменений
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 30 min, Choose task by name or tags = add_two_number
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 30 min
+    - Choose task by name or tags = add_two_number
+    - нажать create battle
+    - нажать кнопку "сбросить редактор"
+  expected-result: |
+    окно редактора должно очиститься от изменений
+    
+- summary: |
+    Проверка решения игры с ботом
+  requirement: |
+    При нажатии на кнопку "проверить решение" программа проверяет правильность решения
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 30 min, Choose task by name or tags = add_two_number
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 30 min
+    - Choose task by name or tags = add_two_number
+    - нажать create battle
+    - вписать "тратата" в окно решения
+    - нажать кнопку "проверить решение"
+  expected-result: |
+    В выводах проверки решения должно быть написано: Что-то пошло не так, свяжитесь с разработчиками
+    
+- summary: |
+    Проигрыш в игре с ботом
+  requirement: |
+    В случае проигрыша проявляется всплывающее окно с информацией о проигрыше
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 30 min, Choose task by name or tags = add_two_number
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 30 min
+    - Choose task by name or tags = add_two_number
+    - нажать create battle
+  expected-result: |
+    В случае проигрыша проявляется всплывающее окно с информацией о проигрыше
+    
+- summary: |
+    Проверка возвращения на главную страницу из игры
+  requirement: |
+    При нажатии на кнопку "back to home" пользователь возвращается на главную страницу
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 30 min, Choose task by name or tags = add_two_number
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 30 min
+    - Choose task by name or tags = add_two_number
+    - нажать create battle
+    - нажать кнопку "back to home"
+  expected-result: |
+    При нажатии на кнопку "back to home" пользователь возвращается на главную страницу

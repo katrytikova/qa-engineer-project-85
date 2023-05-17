@@ -18,6 +18,23 @@
     Пользователь должен попасть на главную страницу
     
 - summary: |
+    Проверка регистрации пользователя с несуществующей почтой
+  requirement: |
+    При вводе несущетсвующей почты не должна происходить регистрация
+  prerequisites:
+    Открыта страница регистрации
+  test-data: |
+    псевдоним = test25 Электронная почта = katlukina@tratata.ru Пароль = test25 подтверждение пароля = test25
+  steps:
+    - Вводим псевдоним
+    - Вводим логин
+    - Вводим пароль
+    - Вводим подтверждение пароля
+    - Нажимаем кнопку «Войти»
+  expected-result: |
+    Пользователь должен увидеть сообщение об ошибке   
+    
+- summary: |
     Проверка входа пользователя с существующими логином и паролем
   requirement: |
     При верном вводе логине и пароля пользователь должен войти в систему
@@ -209,3 +226,246 @@
     - нажать кнопку "back to home"
   expected-result: |
     При нажатии на кнопку "back to home" пользователь возвращается на главную страницу
+    
+- summary: |
+    Проверка возвращения на главную страницу из игры по нажатию на логотип
+  requirement: |
+    При нажатии на логотип пользователь возвращается на главную страницу
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 30 min, Choose task by name or tags = add_two_number
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 30 min
+    - Choose task by name or tags = add_two_number
+    - нажать create battle
+    - нажать на логотип
+  expected-result: |
+    При нажатии на логотип пользователь возвращается на главную страницу
+    
+- summary: |
+    Проверка возвращения на главную страницу из личного кабинета по нажатию на логотип
+  requirement: |
+    При нажатии на логотип пользователь возвращается на главную страницу из личного кабинета
+  prerequisites:
+    Открыта страница https://codebattle.hexlet.io/users/10106
+  test-data: |
+    empty
+  steps:
+    - нажать на логотип
+  expected-result: |
+    Пользователь возвращается на главную страницу
+    
+- summary: |
+    Проверка возвращения на главную страницу со страницы рейтинга по нажатию на логотип
+  requirement: |
+    При нажатии на логотип пользователь возвращается на главную страницу со страницы рейтинга пользователей
+  prerequisites:
+    Открыта страница https://codebattle.hexlet.io/users
+  test-data: |
+    empty
+  steps:
+    - нажать на логотип
+  expected-result: |
+    Пользователь возвращается на главную страницу
+    
+- summary: |
+    Проверка отображения открытых турниров
+  requirement: |
+    При нажатии на кнопку "tournaments" открывается страница с турнирами
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "tournaments"
+  expected-result: |
+    При нажатии на кнопку "tournaments" открывается страница с турнирами
+    
+- summary: |
+    Проверка отображения завершенных игр
+  requirement: |
+    При нажатии на кнопку "completed games" открывается страница с завершенными играми
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "completed games" 
+  expected-result: |
+    При нажатии на кнопку "completed games" открывается страница с завершенными играми
+    
+- summary: |
+    Проверка отображения leaderboard total 
+  requirement: |
+    При нажатии на кнопку "top list" открывается рейтинг пользователей
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "top list"
+  expected-result: |
+    При нажатии на кнопку "top list" открывается рейтинг пользователей
+    
+- summary: |
+    Проверка отображения leaderboard weekly
+  requirement: |
+    При нажатии на кнопку "weekly" открывается рейтинг пользователей за неделю
+  prerequisites:
+    Открыта страница https://codebattle.hexlet.io/users
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "weekly"
+  expected-result: |
+    открывается рейтинг пользователей за неделю
+    
+- summary: |
+    Проверка отображения leaderboard monthly
+  requirement: |
+    При нажатии на кнопку "monthly" открывается рейтинг пользователей за месяц
+  prerequisites:
+    Открыта страница https://codebattle.hexlet.io/users
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "monthly"
+  expected-result: |
+    открывается рейтинг пользователей за месяц
+    
+- summary: |
+    Проверка перехода в личный кабинет с главной страницы путем нажатия на имя пользователя
+  requirement: |
+    При нажатии на имя пользователя появляется всплывающее окно с меню личного кабинета
+  prerequisites:
+     Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Нажать на имя пользователя
+  expected-result: |
+    открывается всплывающее окно с меню личного кабинета
+    
+- summary: |
+    Проверка перехода в профиль пользователя с главной страницы сайта
+  requirement: |
+    При нажатии на кнопку "my profile"  появляется всплывающее окно с настройками
+  prerequisites:
+     Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Нажать на имя пользователя
+    - Нажать кнопку "my profile" 
+  expected-result: |
+    Пользователь переходит в свой профиль
+    
+- summary: |
+    Проверка перехода в профиль пользователя с главной страницы сайта
+  requirement: |
+    При нажатии на кнопку "my profile"  появляется всплывающее окно с настройками
+  prerequisites:
+     Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Нажать на имя пользователя
+    - Нажать кнопку "my profile" 
+  expected-result: |
+    Пользователь переходит в свой профиль
+    
+- summary: |
+    Проверка перехода в "completed games" из профиля пользователя 
+  requirement: |
+    При нажатии на кнопку "completed games" происходит переход к странице завершенных игр пользователя
+  prerequisites:
+     Открыта страница https://codebattle.hexlet.io/users/10106
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "completed games" 
+  expected-result: |
+    Пользователь переходит к странице с завершенными играми
+    
+- summary: |
+    Проверка перехода в "users rating" из профиля пользователя 
+  requirement: |
+    При нажатии на кнопку "users rating" происходит переход к странице рейтинга пользователей
+  prerequisites:
+     Открыта страница https://codebattle.hexlet.io/users/10106
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "users rating"
+  expected-result: |
+    Пользователь переходит к странице рейтинга пользователей
+    
+- summary: |
+    Проверка перехода в "tasks" из профиля пользователя 
+  requirement: |
+    При нажатии на кнопку "tasks" происходит переход к странице с заданиями
+  prerequisites:
+     Открыта страница https://codebattle.hexlet.io/users/10106
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "tasks"
+  expected-result: |
+    Пользователь переходит к странице с заданиями
+    
+- summary: |
+    Проверка перехода в "task packs" со страницы с заданиями
+  requirement: |
+    При нажатии на кнопку "task packs" происходит переход к странице с пакетами заданий
+  prerequisites:
+     Открыта страница https://codebattle.hexlet.io/tasks
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "task packs"
+  expected-result: |
+    Пользователь переходит к странице с пакетами заданий
+    
+- summary: |
+    Проверка перехода в "task packs" со страницы с заданиями
+  requirement: |
+    При нажатии на кнопку "task packs" происходит переход к странице с пакетами заданий
+  prerequisites:
+     Открыта страница https://codebattle.hexlet.io/tasks
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "task packs"
+  expected-result: |
+    Пользователь переходит к странице с пакетами заданий  
+    
+- summary: |
+    Проверка перехода в "tournaments" из профиля пользователя 
+  requirement: |
+    При нажатии на кнопку "tournaments" происходит переход к странице с турнирами
+  prerequisites:
+     Открыта страница https://codebattle.hexlet.io/users/10106
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "tournaments"
+  expected-result: |
+    Пользователь переходит к странице с турнирами
+    
+- summary: |
+    Проверка выхода из системы
+  requirement: |
+    При нажатии на кнопку "sign out" происходит выход из системы
+  prerequisites:
+     Открыта страница https://codebattle.hexlet.io/users/10106
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "sign out"
+  expected-result: |
+    Пользователь выходит из системы
+ 

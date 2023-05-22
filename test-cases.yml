@@ -516,7 +516,7 @@
 - summary: |
     Совместимость с браузером Safari
   requirement: |
-    Все страницы корректно отображаются и фyкционируют в браузере Opera
+    Все страницы корректно отображаются и фyкционируют в браузере Safari
   prerequisites:
     Открыта главная страница https://codebattle.hexlet.io/#lobby
   test-data: |

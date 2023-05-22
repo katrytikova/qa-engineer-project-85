@@ -209,6 +209,25 @@
     В случае проигрыша проявляется всплывающее окно с информацией о проигрыше
     
 - summary: |
+    Проверка переключения языка задачи игры с ботом
+  requirement: |
+    При нажатии на кнопку "RU" и выборе "ENG" задача переводится на английский язык
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 30 min, Choose task by name or tags = add_two_number
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 30 min
+    - Choose task by name or tags = add_two_number
+    - нажать "RU"
+    - нажать "ENG"
+  expected-result: |
+    Текст задачи переводится на английский язык
+    
+- summary: |
     Проверка возвращения на главную страницу из игры
   requirement: |
     При нажатии на кнопку "back to home" пользователь возвращается на главную страницу
@@ -297,6 +316,19 @@
     - Нажать кнопку "completed games" 
   expected-result: |
     При нажатии на кнопку "completed games" открывается страница с завершенными играми
+    
+- summary: |
+    Проверка просмотра завершенной игры в записи
+  requirement: |
+    При нажатии на кнопку "show" открывается страница завершенной игры
+  prerequisites:
+    Открыта страница https://codebattle.hexlet.io/#completedGames
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "show" 
+  expected-result: |
+    Открывается страница с завершенной игрой в виде плеера
     
 - summary: |
     Проверка отображения leaderboard total 
@@ -441,4 +473,69 @@
     - Нажать кнопку "sign out"
   expected-result: |
     Пользователь выходит из системы
+    
+- summary: |
+    сайт должен иметь мобильную версию
+  requirement: |
+    Все страницы корректно отображаются и фyкционируют в мобильной версии
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Открыть сайт на мобильном устройстве 
+  expected-result: |
+    Сайт отображается на мобильном устройстве
+    
+- summary: |
+    Совместимость с браузером Chrome
+  requirement: |
+    Все страницы корректно отображаются и фyкционируют в браузере Chrome
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Открыть сайт в браузере Chrome
+  expected-result: |
+    Сайт открывается нв браузере Chrome
+    
+- summary: |
+    Совместимость с браузером Firefox
+  requirement: |
+    Все страницы корректно отображаются и фyкционируют в браузере Firefox
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Открыть сайт в браузере Firefox
+  expected-result: |
+    Сайт открывается нв браузере Firefox
+    
+- summary: |
+    Совместимость с браузером Safari
+  requirement: |
+    Все страницы корректно отображаются и фyкционируют в браузере Opera
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Открыть сайт в браузере Safari
+  expected-result: |
+    Сайт открывается нв браузере Safari
+    
+- summary: |
+    Переключение языка
+  requirement: |
+    Проверить корректное переключение языка
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    empty
+  steps:
+    - Нажать кнопку "language"
+  expected-result: |
+    Сайт должен быть переведен на русский язык
  

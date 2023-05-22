@@ -48,6 +48,10 @@
   status: pass
   
 - summary: |
+     Проверка переключения языка задачи игры с ботом
+  status: pass
+  
+- summary: |
      Проверка возвращения на главную страницу из игры
   status: pass
   
@@ -71,6 +75,10 @@
       Проверка отображения завершенных игр
   status: pass 
   
+- summary: |
+      Проверка просмотра завершенной игры в записи
+  status: pass 
+ 
 - summary: |
       Проверка отображения leaderboard total 
   status: pass 
@@ -115,16 +123,27 @@
         Проверка выхода из системы
   status: pass 
    
+- summary: |
+        Сайт должен иметь мобильную версию
+  status: pass 
    
+- summary: |
+        Совместимость с браузером Chrome
+  status: pass 
    
+- summary: |
+        Совместимость с браузером Firefox
+  status: pass   
    
+- summary: |
+        Совместимость с браузером Safari
+  status: pass   
    
+- summary: |
+        Переключение языка
+  status: pass   
    
-   
-   
-   
-   
-   
+  
    
    
    

@@ -121,7 +121,7 @@
    
 - summary: |
        Проверка перехода в "task packs" со страницы с заданиями
-  status: fail 
+  status: pass 
   
 - summary: |
        Проверка перехода в "tournaments" из профиля пользователя 

@@ -4,8 +4,12 @@
   status: pass
   
 - summary: |
+    Проверка подтверждения почты при регистрации нового пользователя
+  status: fail 
+  
+- summary: |
     Проверка регистрации пользователя с несуществующей почтой
-  status: fail
+  status: pass
   
 - summary: |
     Проверка входа пользователя с существующими логином и паролем
@@ -49,7 +53,11 @@
   
 - summary: |
      Проверка переключения языка задачи игры с ботом
-  status: pass
+  status: fail 
+  
+- summary: |
+     Проверка переключения языка в чате игры с ботом
+  status: fail 
   
 - summary: |
      Проверка возвращения на главную страницу из игры
@@ -85,11 +93,11 @@
   
 - summary: |
       Проверка отображения leaderboard weekly
-  status: pass 
+  status: fail 
   
 - summary: |
       Проверка отображения leaderboard monthly
-  status: pass 
+  status: fail 
   
 - summary: |
       Проверка перехода в личный кабинет с главной страницы путем нажатия на имя пользователя
@@ -113,7 +121,7 @@
    
 - summary: |
        Проверка перехода в "task packs" со страницы с заданиями
-  status: pass 
+  status: fail 
   
 - summary: |
        Проверка перехода в "tournaments" из профиля пользователя 
@@ -141,7 +149,7 @@
    
 - summary: |
         Переключение языка
-  status: pass   
+  status: fail    
    
   
    

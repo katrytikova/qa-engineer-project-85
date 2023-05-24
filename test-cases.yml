@@ -562,16 +562,5 @@
   expected-result: |
     Сайт открывается нв браузере Safari
     
-- summary: |
-    Переключение языка
-  requirement: |
-    Проверить корректное переключение языка
-  prerequisites:
-    Открыта главная страница https://codebattle.hexlet.io/#lobby
-  test-data: |
-    empty
-  steps:
-    - Нажать кнопку "language"
-  expected-result: |
-    Сайт должен быть переведен на русский язык
+
  

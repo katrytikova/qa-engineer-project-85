@@ -146,11 +146,7 @@
 - summary: |
         Совместимость с браузером Safari
   status: pass   
-   
-- summary: |
-        Переключение языка
-  status: fail    
-   
+
   
    
    

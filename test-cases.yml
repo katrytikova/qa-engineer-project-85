@@ -282,15 +282,7 @@
     - time control = 8 min
     - Choose task by name or tags = rect_area
     - нажать create battle
-    - ввести решение:
-       const _ = require("lodash");
-       const R = require("rambda");
-
-       const solution = (width, length) => {
-       return width * length;
-       };
-   
-       module.exports = solution;
+    - ввести решение "const _ = require("lodash"); const R = require("rambda"); const solution = (width, length) => { return width * length;  }; module.exports = solution;"
   expected-result: |
     Проявляется всплывающее окно с информацией о победе
     

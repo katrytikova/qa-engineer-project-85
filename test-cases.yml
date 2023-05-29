@@ -5,7 +5,7 @@
   requirement: |
     При верном вводе логине и пароля пользователь должен войти в систему
   prerequisites:
-    Открыта страница регистрации
+    Открыта страница регистрации https://codebattle.hexlet.io/users/new?locale=en&next=%2F
   test-data: |
     псевдоним = test25 Электронная почта = katlukina@mail.ru Пароль = test25 подтверждение пароля = test25
   steps:
@@ -22,7 +22,7 @@
   requirement: |
     При верном вводе логине и пароля пользователь должен получить письмо, после перехода по ссылке происходит подтверждение регистрации
   prerequisites:
-    Открыта страница регистрации
+    Открыта страница регистрации https://codebattle.hexlet.io/users/new?locale=en&next=%2F
   test-data: |
     псевдоним = test25 Электронная почта = katlukina@mail.ru Пароль = test25 подтверждение пароля = test25
   steps:
@@ -39,7 +39,7 @@
   requirement: |
     При вводе несущетсвующей почты не должна происходить регистрация
   prerequisites:
-    Открыта страница регистрации
+    Открыта страница регистрации https://codebattle.hexlet.io/users/new?locale=en&next=%2F
   test-data: |
     псевдоним = test25 Электронная почта = tratata.ru Пароль = test25 подтверждение пароля = test25
   steps:
@@ -52,43 +52,43 @@
     Пользователь должен увидеть сообщение об ошибке   
     
 - summary: |
-    Проверка входа пользователя с существующими логином и паролем
+    Проверка входа пользователя с несуществующим паролем
   requirement: |
-    При верном вводе логине и пароля пользователь должен войти в систему
-  prerequisites: |
-    открыта страница логина
-  test-data: |
-    Логин = ilona Пароль = password
-  steps:
-    - Вводим логин
-    - Вводим пароль
-    - Нажимаем кнопку «Войти»
-  expected-result: |
-    Пользователь должен попасть на главную страницу
-
-- summary: |
-    Проверка входа пользователя с несуществующими логином и паролем
-  requirement: |
-    При неправильном логине или пароле пользователь должен получить сообщение об ошибке
+    При неправильном пароле пользователь должен получить сообщение об ошибке
   prerequisites:
-    Открыта страница логина
+    Открыта страница логина https://codebattle.hexlet.io/session/new?locale=en&next=%2F
   test-data: |
-    Логин = hexlet Пароль = badpass
+    электронная почта = katlukina@mail.ru Пароль = badpass
   steps:
-    - Вводим логин
+    - Вводим почту
     - Вводим пароль
     - Нажимаем кнопку «Войти»
   expected-result: |
     Должно появиться сообщение об ошибке
     
 - summary: |
-    Проверка входа пользователя через Гитхаб
+    Проверка входа пользователя с существующими логином и паролем
   requirement: |
     При верном вводе логине и пароля пользователь должен войти в систему
-  prerequisites:
-    Открыта страница логина
+  prerequisites: |
+    открыта страница логина https://codebattle.hexlet.io/session/new?locale=en&next=%2F
   test-data: |
-    empty
+    электронная почта = katlukina@mail.ru  Пароль = test25 
+  steps:
+    - Вводим логин
+    - Вводим пароль
+    - Нажимаем кнопку «Войти»
+  expected-result: |
+    Пользователь должен попасть на главную страницу
+    
+- summary: |
+    Проверка входа пользователя через Гитхаб
+  requirement: |
+    При верном вводе логине и пароля пользователь должен войти в систему. У пользователя есть аккаунт на Гитхаб
+  prerequisites:
+    Открыта страница логина https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  test-data: |
+    https://github.com/katrytikova
   steps:
     - Нажимаем «Войти» через Гитхаб
   expected-result: |
@@ -110,12 +110,31 @@
     - Choose task by name or tags = add_two_number
     - нажать create battle
   expected-result: |
-    Пользователь должен попасть на страницу турнира 
+    Пользователь должен попасть на страницу игры 
     
 - summary: |
-    Проверка создания игры с другом
+    Проверка отправки приглашения в игре с другом
   requirement: |
-    При верном вводе данных игра запускается
+    При верном вводе данных приглашение отправляется другу
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a friend, time control = 10 min, Choose opponent = krytikova, Choose task by name or tags = additive_inverse
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 10 min
+    - Choose opponent = krytikova
+    - Choose task by name or tags = additive_inverse
+    - нажать create invite
+  expected-result: |
+    Приглашение в игру должно быть отправлено
+    
+- summary: |
+    Проверка получения приглашения в игру
+  requirement: |
+    Пользователь может принять приглашение в игру
   prerequisites:
     Открыта главная страница https://codebattle.hexlet.io/#lobby
   test-data: |
@@ -130,6 +149,7 @@
     - нажать create invite
   expected-result: |
     Пользователю должно прийти приглашение в личный кабинет
+    
     
 - summary: |
     Проверка создания игры с другим пользователем
@@ -150,7 +170,7 @@
     Игра должна высветиться в лобби 
     
 - summary: |
-    Сдаться в игре с ботом
+    Проверка появления всплывающего окна с подтверждением сдаться в игре с ботом
   requirement: |
     При нажатии на кнопку "сдаться" появляется всплывающее окно с уточнением намерения сдаться
   prerequisites:
@@ -166,7 +186,27 @@
     - нажать create battle
     - нажать кнопку "сдаться"
   expected-result: |
-    Пользователь должен увидеть всплывающее окно с уточнением намерения сдаться
+    Должно появиться всплывающее окно с подтверждением намерения сдаться
+    
+- summary: |
+    Сдаться в игре с ботом
+  requirement: |
+    При подтверждении намерения сдаться во всплывающем окне игра завершается
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 30 min, Choose task by name or tags = add_two_number
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 30 min
+    - Choose task by name or tags = add_two_number
+    - нажать create battle
+    - нажать кнопку "сдаться"
+    - нажать кнопку "give up"
+  expected-result: |
+    игра завершена поражением пользователя
     
 - summary: |
     Сбросить редактор игры с ботом
@@ -183,6 +223,7 @@
     - time control = 30 min
     - Choose task by name or tags = add_two_number
     - нажать create battle
+    - внести в редактор кода изменения
     - нажать кнопку "сбросить редактор"
   expected-result: |
     окно редактора должно очиститься от изменений
@@ -205,7 +246,7 @@
     - вписать "тратата" в окно решения
     - нажать кнопку "проверить решение"
   expected-result: |
-    В выводах проверки решения должно быть написано: Что-то пошло не так, свяжитесь с разработчиками
+    Пользователь должен увидеть сообщение, что проверка не прошла
     
 - summary: |
     Проигрыш в игре с ботом
@@ -222,8 +263,36 @@
     - time control = 30 min
     - Choose task by name or tags = add_two_number
     - нажать create battle
+    - ждем, когда бот напишет решение
   expected-result: |
-    В случае проигрыша проявляется всплывающее окно с информацией о проигрыше
+    Проявляется всплывающее окно с информацией о проигрыше
+    
+- summary: |
+    выигрыш в игре с ботом
+  requirement: |
+    В случае выигрыша проявляется всплывающее окно с информацией о победе
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/#lobby
+  test-data: |
+    level = 1 звезда, game type = with a bot, time control = 8 min, Choose task by name or tags = rect_area
+  steps:
+    - Нажимаем «Create a game"
+    - level 1 звезда
+    - game type = with a bot
+    - time control = 8 min
+    - Choose task by name or tags = rect_area
+    - нажать create battle
+    - ввести решение:
+       const _ = require("lodash");
+       const R = require("rambda");
+
+       const solution = (width, length) => {
+       return width * length;
+       };
+   
+       module.exports = solution;
+  expected-result: |
+    Проявляется всплывающее окно с информацией о победе
     
 - summary: |
     Проверка переключения языка игры с ботом
@@ -239,6 +308,7 @@
     - game type = with a bot
     - time control = 30 min
     - Choose task by name or tags = add_two_number
+    - нажать create battle
     - нажать "ENG"
     - нажать "RU"
   expected-result: |
@@ -258,6 +328,7 @@
     - game type = with a bot
     - time control = 30 min
     - Choose task by name or tags = add_two_number
+    - нажать create battle
     - нажать "ENG"
     - нажать "RU" 
   expected-result: |
@@ -437,7 +508,7 @@
   requirement: |
     При нажатии на кнопку "completed games" происходит переход к странице завершенных игр пользователя
   prerequisites:
-     Открыта страница https://codebattle.hexlet.io/users/10106
+     Открыт профиль текущего пользователя
   test-data: |
     empty
   steps:
@@ -450,7 +521,7 @@
   requirement: |
     При нажатии на кнопку "users rating" происходит переход к странице рейтинга пользователей
   prerequisites:
-     Открыта страница https://codebattle.hexlet.io/users/10106
+     Открыт профиль текущего пользователя
   test-data: |
     empty
   steps:
@@ -463,7 +534,7 @@
   requirement: |
     При нажатии на кнопку "tasks" происходит переход к странице с заданиями
   prerequisites:
-     Открыта страница https://codebattle.hexlet.io/users/10106
+     Открыт профиль текущего пользователя
   test-data: |
     empty
   steps:
@@ -489,7 +560,7 @@
   requirement: |
     При нажатии на кнопку "tournaments" происходит переход к странице с турнирами
   prerequisites:
-     Открыта страница https://codebattle.hexlet.io/users/10106
+     Открыт профиль текущего пользователя
   test-data: |
     empty
   steps:
@@ -502,7 +573,7 @@
   requirement: |
     При нажатии на кнопку "sign out" происходит выход из системы
   prerequisites:
-     Открыта страница https://codebattle.hexlet.io/users/10106
+     Открыт профиль текущего пользователя
   test-data: |
     empty
   steps:

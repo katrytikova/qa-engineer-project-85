@@ -132,23 +132,18 @@
     Приглашение в игру должно быть отправлено
     
 - summary: |
-    Проверка получения приглашения в игру в браузере Chrome
+    Проверка получения приглашения в игру от друга в браузере Chrome
   requirement: |
     Пользователь может принять приглашение в игру
   prerequisites:
     Открыта главная страница https://codebattle.hexlet.io/#lobby
   test-data: |
-    level = 1 звезда, game type = with a friend, time control = 10 min, Choose opponent = krytikova, Choose task by name or tags = additive_inverse
+    empty
   steps:
-    - Нажимаем «Create a game"
-    - level 1 звезда
-    - game type = with a bot
-    - time control = 10 min
-    - Choose opponent = krytikova
-    - Choose task by name or tags = additive_inverse
-    - нажать create invite
+    - Нажимаем кнопку с мечами
+    - во всплывающем окне нажимаем "accept"
   expected-result: |
-    Пользователю должно прийти приглашение в личный кабинет
+    Пользователь может принять приглашение в игру
     
     
 - summary: |
@@ -202,7 +197,7 @@
     Должно появиться всплывающее окно с подтверждением намерения сдаться
     
 - summary: |
-    Сдаться в игре с ботом
+    Сдаться в игре с ботом в браузере Chrome
   requirement: |
     При подтверждении намерения сдаться во всплывающем окне игра завершается в браузере Chrome
   prerequisites:

@@ -1,0 +1,23 @@
+,level,Game type,Time control,Choose task by name or tags
+1,1,With a friend,10,additive_inverse
+2,1,With a bot,30,add_two_number
+3,1,With other users,60,age_to_days
+4,1,With a friend,3,arithmetic_progression
+5,2,With a friend,30,age_to_days
+6,2,With a bot,60,arithmetic_progression
+7,2,With other users,3,Random task
+8,2,With a friend,3,additive_inverse
+9,2,With other users,10,add_two_number
+10,3,With a bot,3,additive_inverse
+11,3,With other users,3,add_two_number
+12,3,With a friend,10,age_to_days
+13,3,With other users,30,arithmetic_progression
+14,3,With a friend,60,Random task
+15,4,With other users,10,arithmetic_progression
+16,4,With a friend,30,Random task
+17,4,With other users,60,additive_inverse
+18,4,With a friend,3,add_two_number
+19,4,With a bot,3,age_to_days
+20,1,With a friend,60,add_two_number
+21,1,With a bot,10,Random task
+22,1,With other users,30,additive_inverse
